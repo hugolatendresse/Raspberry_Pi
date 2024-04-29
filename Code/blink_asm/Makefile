@@ -1,4 +1,4 @@
-all: first start read_gpio
+all: first start read_gpio write_gpio
 
 first: first.o
 	gcc -o $@ $+
@@ -15,5 +15,8 @@ start.o: start.s
 read_gpio: read_gpio.c
 	gcc -o read_gpio read_gpio.c
 
+write_gpio: write_gpio.c
+	gcc -o write_gpio write_gpio.c
+
 clean:
-	rm -vf first read_gpio  start *.o
+	rm -vf first read_gpio write_gpio  start *.o
